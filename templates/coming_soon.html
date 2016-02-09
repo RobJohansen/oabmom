@@ -1,0 +1,82 @@
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>OABMOM</title>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+        <style type="text/css">
+            @font-face {
+                font-family:      'Plague';
+                src:              url('../css/vendor/fonts/plague.ttf') format('truetype');
+            }
+
+            body {
+                background-color:   black;
+                color:              black;
+                font-family:        'Plague';
+                font-size:          80px;
+                letter-spacing:     15px;
+            }
+
+            img {
+                opacity:            1;
+            }
+
+            .center {
+                position:           absolute;
+                left:               50%;
+                top:                50%;
+                margin-right:       -50%;
+                transform:          translate(-50%, -50%);
+                -webkit-transform:  translate(-50%, -50%);
+                -ms-transform:      translate(-50%, -50%);
+            }
+		</style>
+
+    </head>
+
+    <body class="center">
+        coming soon
+        <img src="../img/bat_transparent.png" class="center hide"/>
+    </body>
+
+    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                var speed = 500;
+
+                window.flicker = function() {
+                    if(Math.random() > 0.9) {
+                        $("img").show();
+                        $("body").css("background", "white");
+
+                        setTimeout('window.unflicker()', 50);
+                    }
+                    else
+                    {
+                        setTimeout('window.flicker()', speed);
+                    }
+                }
+
+                window.unflicker = function() {
+                    $("img").hide();
+                    $("body").css("background", "#292121");
+
+                    setTimeout('window.flicker()', speed);
+                }
+
+                $("img").hide();
+                $("body").css("color", "white");
+
+                setTimeout('window.unflicker()', speed);
+            });
+    </script>
+
+</html>
